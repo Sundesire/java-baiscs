@@ -46,5 +46,7 @@ public class Main {
         } else if (b > 100) {
             System.out.println("Выход за пределы диапазона");
         }
+
+
     }
 }
