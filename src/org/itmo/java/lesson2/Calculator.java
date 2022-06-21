@@ -9,7 +9,7 @@ public class Calculator {
 //        System.out.println("Summ: " + summ + ", extr: " + extr + ", mult: " + mult + ", div: " + div);
     }
 
-    
+
 
     public static int summ(int a, int b) {
         return a + b;
