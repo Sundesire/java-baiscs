@@ -5,16 +5,9 @@ public class Calculator {
         int summ = summ(3,5);
         int extr = extr(4,2);
         double mult = mult(21,3.4d);
-        long div = div(412318L, 12124);
-        System.out.println("Summ: " + summ + ", extr: " + extr + ", mult: " + mult + ", div: " + div);
-        Human human1 = new Human();
-        System.out.println("Human 1: " + human1.getName() + " " + human1.getAge() + " years old.");
-        Human human2 = new Human("Alex");
-        System.out.println("Human 2: " + human2.getName() + " " + human2.getAge() + " years old.");
-        human2.setAge(33);
-        System.out.println("Human 2: " + human2.getName() + " " + human2.getAge() + " years old.");
-        Human human3 = new Human("James",21);
-        System.out.println("Human 3: " + human3.getName() + " " + human3.getAge() + " years old.");
+        double div1 = div(412318L, 12124L);
+        double div2 = div(4, 2);
+        double div3 = div(15.6, 5.3);
 
     }
 
@@ -58,14 +51,15 @@ public class Calculator {
     }
 
     //Divide
-    public static int div(int a, int b) {
-        return a / b;
+    public static double div(int a, int b) {
+        return (double) a / b;
     }
 
     public static double div(double a, double b) {
         return a / b;
     }
-    public static long div(long a, long b) {
-        return a / b;
+
+    public static double div(long a, long b) {
+        return (double) a / b;
     }
 }
