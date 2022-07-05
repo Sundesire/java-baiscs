@@ -1,7 +1,9 @@
 package org.itmo.java.lesson4;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Algoritms {
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class Algoritms {
 //        swapFirstAndLast(ints1);
 //        swapFirstAndLast(ints2);
 //        swapFirstAndLast(ints3);
-        int[] uniqueArray = {1,2,3,1,2,4};
+        int[] uniqueArray = {1, 2, 3, 1, 2, 4};
         uniqueNumber(uniqueArray);
     }
 
@@ -36,11 +38,10 @@ public class Algoritms {
 
     //Задание №2
     public static void checkDivOnThreeOrFive() {
-        for(int i = 1; i < 101; i++) {
+        for (int i = 1; i < 101; i++) {
             if ((i % 3 == 0) && (i % 5 == 0)) {
                 System.out.println("Делится на 3 и на 5: " + i);
-            }
-            else if (i % 3 == 0) {
+            } else if (i % 3 == 0) {
                 System.out.println("Делится на 3: " + i);
             } else if (i % 5 == 0) {
                 System.out.println("Делится на 5: " + i);
@@ -78,7 +79,7 @@ public class Algoritms {
 
     //Задание №5
     public static void checkFirstOrLast(int[] array) {
-        int lenght = array.length - 1;
+        int lenght = array.length;
         if ((array[0] == 3) || (array[lenght - 1] == 3)) {
             System.out.println("result: " + true);
         } else {
@@ -141,7 +142,7 @@ public class Algoritms {
     }
 
     //Задание №3
-    public static void swapFirstAndLast(int[] array){
+    public static void swapFirstAndLast(int[] array) {
         System.out.println("Array 1: " + Arrays.toString(array));
         int firstNumber;
         int lastNumber;
@@ -149,7 +150,7 @@ public class Algoritms {
         if (array.length > 1) {
             if (array[0] != array[array.length - 1]) {
                 firstNumber = array[0];
-                lastNumber = array[array.length-1];
+                lastNumber = array[array.length - 1];
                 array[0] = lastNumber;
                 array[array.length - 1] = firstNumber;
                 System.out.println("Array 2: " + Arrays.toString(array));
@@ -162,14 +163,24 @@ public class Algoritms {
     }
 
     //Задание №4
-    public static void uniqueNumber(int[] array){
+    public static void uniqueNumber(int[] array) {
+        int lenght = array.length;
+        int[] uniqueNumbers = new int[lenght];
+        int uniqueNumbersCounter = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if(array[i] == array[j]) {
-                    System.out.println("Число встречается в массиве");
+            boolean flag = true;
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] == array[j] && i != j) {
+                    flag = false;
+                    break;
                 }
             }
+            if (flag) {
+                uniqueNumbers[uniqueNumbersCounter] = array[i];
+                uniqueNumbersCounter++;
+            }
         }
-    }
 
+        System.out.println("Первое уникальное число массива: " + uniqueNumbers[0]);
+    }
 }
